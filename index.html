@@ -1,138 +1,429 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Гайд по монтажу в CapCut</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CapCut PRO — Гайд по монтажу | Делай видео, которые продают</title>
+ 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+ 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+    :root{
+      --bg: #0f1723;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent1: #9B5DE5; /* фиолетовый */
+      --accent2: #FF6F00; /* оранжевый */
+      --grad: linear-gradient(135deg,var(--accent1),var(--accent2));
+      --radius: 14px;
+      --maxw: 1100px;
     }
-    header {
-      background: linear-gradient(135deg, #9B5DE5, #FF6F00);
-      color: #fff;
-      padding: 50px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #fafafa;
+      color:#0b1220;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:28px;}
+ 
+    /* HERO */
+    .hero{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      justify-content:space-between;
+      padding:56px 24px;
+      border-radius:20px;
+      background: radial-gradient(800px 300px at 10% 10%, rgba(155,93,229,0.12), transparent 10%),
+                  radial-gradient(600px 240px at 90% 90%, rgba(255,111,0,0.09), transparent 10%),
+                  #111827;
+      color:#fff;
+      margin:18px 0 36px 0;
     }
-    header p {
-      font-size: 1.2em;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h2 {
-      color: #9B5DE5;
-      margin-bottom: 20px;
-    }
+    .hero-left{flex:1; min-width:260px}
+    .sup{display:inline-block; background:rgba(255,255,255,0.08); color:#fff; padding:6px 10px; border-radius:999px; font-weight:600; font-size:13px; margin-bottom:12px}
+    .hero h1{font-family:'Montserrat',sans-serif; margin:6px 0 12px; font-size:34px; line-height:1.02}
+    .hero p{color:rgba(255,255,255,0.9); margin:0 0 18px; font-size:16px}
+    .hero-cta{display:flex; gap:12px; align-items:center}
     .btn {
-      display: inline-block;
-      background-color: #FF6F00;
-      color: #fff;
-      padding: 12px 25px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background 0.3s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 18px; border-radius:12px; font-weight:600; cursor:pointer;
+      border: none;
+      box-shadow: 0 8px 30px rgba(16,24,40,0.12);
+      transition: transform .12s ease, box-shadow .12s ease;
     }
-    .btn:hover {
-      background-color: #e65c00;
+    .btn-primary{background:var(--grad); color:#fff}
+    .btn-outline{background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.12)}
+    .btn:hover{transform:translateY(-3px)}
+    .hero-right{width:420px; max-width:42%; min-width:240px}
+    .cover{border-radius:12px; overflow:hidden; background:linear-gradient(180deg,#000,#111); height:260px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.04)}
+    .cover img{width:100%; height:100%; object-fit:cover; display:block}
+    .stats{display:flex; gap:12px; margin-top:14px}
+    .stat{background:rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; font-weight:600; font-size:13px}
+ 
+    /* SECTIONS */
+    section.block{background:#fff; margin:18px 0; padding:26px; border-radius:16px; box-shadow:0 8px 30px rgba(16,24,40,0.04)}
+    .grid{display:grid; gap:18px}
+    .grid-2{grid-template-columns:1fr 1fr}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .center{display:flex; align-items:center; justify-content:center}
+    h2{font-family:'Montserrat'; margin:6px 0 14px; font-size:20px}
+    p.lead{color:var(--muted); margin:0 0 14px}
+ 
+    /* About */
+    .about{display:flex; gap:18px; align-items:center}
+    .avatar{width:108px; height:108px; border-radius:16px; overflow:hidden; flex-shrink:0; border:4px solid #fff}
+    .about-text{flex:1}
+    .badge{display:inline-block; background:var(--accent1); color:#fff; padding:6px 10px; border-radius:10px; font-weight:700; margin-bottom:10px; font-size:13px}
+ 
+    /* Modules */
+    .module{display:flex; gap:14px; align-items:flex-start; background:linear-gradient(180deg, #fff, #fafafa); padding:18px; border-radius:12px; border:1px solid #f0f0f0}
+    .module .ico{width:54px; height:54px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:#fff}
+    .m-1{background:linear-gradient(135deg,#ffd7a6,#ffb380); color:#822f00}
+    .m-2{background:linear-gradient(135deg,#d7b6ff,#b08cff)}
+    .m-3{background:linear-gradient(135deg,#b6ffd9,#7fe0b1)}
+    .module h4{margin:0 0 6px}
+    .module p{margin:0; color:var(--muted)}
+ 
+    /* Before/After */
+    .ba{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .ba .card{flex:1; min-width:260px; border-radius:12px; overflow:hidden; background:#fff; border:1px solid #eee}
+    .ba .card img{width:100%; height:220px; object-fit:cover; display:block}
+    .ba .cap{padding:12px; font-weight:700}
+ 
+    /* Testimonials */
+    .test { padding:14px; border-radius:12px; background:linear-gradient(180deg,#fff,#fcfcff); box-shadow:0 8px 30px rgba(16,24,40,0.04)}
+    .t-head{display:flex; gap:12px; align-items:center}
+    .t-avatar{width:54px; height:54px; border-radius:12px; overflow:hidden}
+    .stars{color:#f59e0b}
+ 
+    /* Bonuses */
+    .bonus-list{display:flex; gap:12px; flex-wrap:wrap}
+    .bonus{background:linear-gradient(180deg, rgba(155,93,229,0.06), rgba(255,111,0,0.04)); padding:12px 14px; border-radius:10px; font-weight:700; color:var(--muted)}
+ 
+    /* FAQ */
+    .faq-item{border-top:1px solid #f0f0f0; padding:12px 0}
+    .faq-item button{width:100%; text-align:left; background:none; border:none; font-weight:700; padding:0; font-size:15px}
+    .faq-answer{color:var(--muted); margin-top:8px}
+ 
+    /* Price block */
+    .price-panel{display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .price-left{max-width:720px}
+    .price-old{color:var(--muted); text-decoration:line-through}
+    .price-new{font-family:'Montserrat'; font-size:32px; color:var(--accent2); font-weight:800}
+    .guarantee{font-size:13px; color:var(--muted); margin-top:8px}
+ 
+    footer{padding:24px; text-align:center; color:var(--muted); font-size:14px; margin-top:18px}
+ 
+    /* responsive */
+    @media(max-width:980px){
+      .hero{flex-direction:column; text-align:center}
+      .hero-right{width:100%}
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .ba .card img{height:180px}
     }
-    .lesson {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-    .lesson.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    @media(max-width: 768px) {
-      header h1 {
-        font-size: 2em;
-      }
-      .btn {
-        padding: 10px 20px;
-      }
+    @media(max-width:520px){
+      .grid-3{grid-template-columns:1fr}
+      .hero h1{font-size:26px}
+      .cover{height:200px}
+      .avatar{width:92px;height:92px}
     }
   </style>
 </head>
 <body>
  
-<header>
-  <h1>Гайд по монтажу в CapCut</h1>
-  <p>Прокачай свои видео до уровня топовых блогеров</p>
-  <a href="#" class="btn">Купить гайд</a>
-</header>
+  <div class="wrap">
  
-<section>
-  <h2>Что внутри</h2>
+    <!-- HERO -->
+    <header class="hero" role="banner" aria-label="CapCut Guide Hero">
+      <div class="hero-left">
+        <div class="sup">CapCut PRO · 8 уроков · PDF + видео</div>
+        <h1>Освой монтаж в CapCut и сделай видео, которые привлекают и продают</h1>
+        <p style="max-width:640px">Пошаговый гайд: от идеи до вирусного и продающего ролика. Понятно, практично и под любые соцсети — TikTok, Reels, Shorts.</p>
  
-  <div class="lesson">
-    <h3>🎯 Модуль 1: Интерфейс CapCut</h3>
-    <p>Научишься мгновенно ориентироваться в программе и экономить время на монтаже.</p>
+        <div class="hero-cta" style="margin-top:10px;">
+          <a class="btn btn-primary" href="#" title="Купить гайд">Купить гайд — 1300 ₽</a>
+          <a class="btn btn-outline" href="#modules" title="Посмотреть содержание">Содержание</a>
+        </div>
+ 
+        <div class="stats" style="margin-top:16px">
+          <div class="stat">✔ 8 уроков</div>
+          <div class="stat">✔ Шаблоны и пресеты</div>
+          <div class="stat">✔ Доступ навсегда</div>
+        </div>
+      </div>
+ 
+      <div class="hero-right">
+        <div class="cover" aria-hidden="true">
+          <!-- Replace src with your cover image -->
+          <img src="https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Обложка гайда CapCut">
+        </div>
+      </div>
+    </header>
+ 
+    <!-- ABOUT -->
+    <section class="block" id="about">
+      <div class="about">
+        <div class="avatar" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Фото автора" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="about-text">
+          <div class="badge">Автор: [Твоё имя]</div>
+          <h3 style="margin:0 0 6px">Я научу тебя монтировать видео, которые смотрят и покупают</h3>
+          <p class="lead">Я занимаюсь видеомонтажом и контент-стратегиями с 20XX года — работал(а) с блогерами и бизнесами, помогая увеличивать охваты и заявки. В гайде — проверенные приёмы и готовые шаблоны, которые я использую сам(а).</p>
+          <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap">
+            <div style="background:#fff; padding:8px 12px; border-radius:10px; font-weight:700">Результат: +20% удержания</div>
+            <div style="background:#fff; padding:8px 12px; border-radius:10px; font-weight:700">15 шаблонов в пакете</div>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- MODULES -->
+    <section class="block" id="modules">
+      <h2>Что внутри — 8 модулей</h2>
+      <p class="lead">Короткие практические уроки с примерами и заданиями — чтобы вы могли применять сразу.</p>
+ 
+      <div style="display:grid; gap:12px; margin-top:12px">
+        <div class="module">
+          <div class="ico m-1">1</div>
+          <div>
+            <h4>Модуль 1 — Основа: идея и сценарий</h4>
+            <p>Как выбирать формат, крючки и сценарные шаблоны — чтобы ролики попадали в алгоритмы.</p>
+          </div>
+        </div>
+ 
+        <div class="module">
+          <div class="ico m-2">2</div>
+          <div>
+            <h4>Модуль 2 — CapCut PRO: keyframes и трекинг</h4>
+            <p>Плавная анимация, маски, трекинг и продвинутые техники монтажа.</p>
+          </div>
+        </div>
+ 
+        <div class="module">
+          <div class="ico m-3">3</div>
+          <div>
+            <h4>Модуль 3 — Сторителлинг через монтаж</h4>
+            <p>Структура ролика, ритм и эмоциональные пики, которые удерживают зрителя.</p>
+          </div>
+        </div>
+ 
+        <div class="module">
+          <div class="ico m-1">4</div>
+          <div>
+            <h4>Модуль 4 — Быстрый монтаж под тренды</h4>
+            <p>Шаблоны, Beat Sync и приёмы, чтобы быстро попадать в рекомендации.</p>
+          </div>
+        </div>
+ 
+        <div class="module">
+          <div class="ico m-2">5</div>
+          <div>
+            <h4>Модуль 5 — Продающие видео</h4>
+            <p>Как встроить CTA и продавать без навязчивости.</p>
+          </div>
+        </div>
+ 
+        <div class="module">
+          <div class="ico m-3">6</div>
+          <div>
+            <h4>Модуль 6 — Анимации и спецэффекты</h4>
+            <p>WOW-переходы, частицы, светоэффекты — без лишней перегрузки.</p>
+          </div>
+        </div>
+ 
+        <div class="module">
+          <div class="ico m-1">7</div>
+          <div>
+            <h4>Модуль 7 — Звук и озвучка</h4>
+            <p>Как записать голос, микшировать и подбирать музыку.</p>
+          </div>
+        </div>
+ 
+        <div class="module">
+          <div class="ico m-2">8</div>
+          <div>
+            <h4>Модуль 8 — Оптимизация и продвижение</h4>
+            <p>Подготовка под платформы, описание, теги и стратегия публикаций.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- BEFORE / AFTER -->
+    <section class="block" aria-label="Примеры до/после">
+      <h2>Примеры: до → после</h2>
+      <p class="lead">Покажи, а не говори — реальные изменения, которые даёт правильный монтаж.</p>
+      <div class="ba" style="margin-top:12px">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="До: обычный ролик">
+          <div class="cap">До: обычный ролик</div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1504386106331-3e4e71712b38?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="После: профессиональный монтаж">
+          <div class="cap">После: динамичный монтаж + цветокоррекция</div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- WHO -->
+    <section class="block">
+      <h2>Для кого этот гайд</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:12px">
+        <div style="padding:16px; border-radius:12px; background:#fff">Блогеры, которые хотят расти</div>
+        <div style="padding:16px; border-radius:12px; background:#fff">Эксперты и инфобизнес</div>
+        <div style="padding:16px; border-radius:12px; background:#fff">SMM-специалисты и команды</div>
+        <div style="padding:16px; border-radius:12px; background:#fff">Предприниматели, которые продают через видео</div>
+      </div>
+ 
+      <div style="margin-top:14px; display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+        <div style="background:#fff; padding:12px 14px; border-radius:10px; font-weight:700">Проблемы: теряется в ленте, низкое удержание</div>
+        <div style="background:#fff; padding:12px 14px; border-radius:10px; font-weight:700">После: видео, которые смотрят до конца</div>
+      </div>
+    </section>
+ 
+    <!-- TESTIMONIALS & BONUSES -->
+    <section class="block" style="display:grid; grid-template-columns: 1fr 320px; gap:18px; align-items:start;">
+      <div>
+        <h2>Отзывы</h2>
+        <div style="display:grid; gap:12px; margin-top:10px">
+          <div class="test">
+            <div class="t-head">
+              <div class="t-avatar"><img src="https://images.unsplash.com/photo-1545996124-1b7f9d9b0d2d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>
+              <div>
+                <div style="font-weight:700">Марина — SMM</div>
+                <div class="stars">★★★★★</div>
+              </div>
+            </div>
+            <p style="margin-top:10px;color:var(--muted)">\"Быстро и по делу — шаблоны и чек-листы реально экономят время. Видно, что автор знает, о чём говорит.\"</p>
+          </div>
+ 
+          <div class="test">
+            <div class="t-head">
+              <div class="t-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>
+              <div>
+                <div style="font-weight:700">Игорь — тренер</div>
+                <div class="stars">★★★★★</div>
+              </div>
+            </div>
+            <p style="margin-top:10px;color:var(--muted)">\"Первые результаты — +15% удержания и заметный рост комментариев. Спасибо за практичность.\"</p>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <aside style="background:linear-gradient(180deg,#fff,#fbf7ff); padding:18px; border-radius:12px; border:1px solid #efe6ff">
+        <h3>Бонусы при покупке</h3>
+        <div style="margin-top:10px" class="bonus-list">
+          <div class="bonus">🎁 15 пресетов и шаблонов</div>
+          <div class="bonus">🧾 Чек-лист «Идеальный монтаж»</div>
+          <div class="bonus">🎧 Подборка трендовых звуков 2025</div>
+        </div>
+        <p style="margin-top:12px;color:var(--muted)">Бонусы — сразу в доступе после покупки.</p>
+      </aside>
+    </section>
+ 
+    <!-- PRICE -->
+    <section class="block" id="buy">
+      <div class="price-panel">
+        <div class="price-left">
+          <h2 style="margin:0 0 6px">Готов начать?</h2>
+          <div class="price-old">Цена «как у студии» — 3500 ₽</div>
+          <div class="price-new">Сегодня — 1300 ₽</div>
+          <div class="guarantee">Гарантия возврата 7 дней, если материал не даст результата при выполнении заданий.</div>
+        </div>
+ 
+        <div style="display:flex; gap:12px; align-items:center;">
+          <a class="btn btn-primary" href="#">Купить сейчас — 1300 ₽</a>
+          <a class="btn btn-outline" href="#about">Посмотреть автора</a>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- FAQ -->
+    <section class="block">
+      <h2>FAQ — Частые вопросы</h2>
+ 
+      <div class="faq-item">
+        <button type="button" onclick="toggleFAQ(this)">Подойдёт ли гайд для новичков?</button>
+        <div class="faq-answer" style="display:none">Да — каждый урок содержит пошаговые инструкции и практические задания. Можно пройти за пару вечеров.</div>
+      </div>
+ 
+      <div class="faq-item">
+        <button type="button" onclick="toggleFAQ(this)">Нужен ли мощный компьютер?</button>
+        <div class="faq-answer" style="display:none">Нет — все уроки ориентированы на мобильную и десктопную версии CapCut. Большая часть делается на смартфоне.</div>
+      </div>
+ 
+      <div class="faq-item">
+        <button type="button" onclick="toggleFAQ(this)">Можно ли купить позже?</button>
+        <div class="faq-answer" style="display:none">Да, но акция 1300 ₽ действует ограниченное время — проверяйте оффер на странице.</div>
+      </div>
+    </section>
+ 
+    <!-- GUARANTEE -->
+    <section class="block" style="text-align:center">
+      <h3>Гарантия качества</h3>
+      <p class="lead">Пройдите все задания и примените материалы — если не увидите улучшений в качестве контента, верну деньги в течение 7 дней.</p>
+    </section>
+ 
+    <footer>
+      © 2025 CapCut PRO Guide — все права защищены · Контакт: your@email.com
+    </footer>
+ 
   </div>
  
-  <div class="lesson">
-    <h3>🎬 Модуль 2: Эффективная нарезка</h3>
-    <p>Секреты резки, склейки и динамичного монтажа, которые держат зрителя до конца.</p>
-  </div>
+  <!-- Scripts -->
+  <script>
+    // Smooth reveal for sections
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+        }
+      });
+    }, {threshold: 0.08});
  
-  <div class="lesson">
-    <h3>✨ Модуль 3: Эффекты и переходы</h3>
-    <p>Добавляй вау-эффект без перегруза видео.</p>
-  </div>
- 
-  <div class="lesson">
-    <h3>🔊 Модуль 4: Работа со звуком</h3>
-    <p>Чистый звук и музыка, которая усиливает впечатление от видео.</p>
-  </div>
- 
-  <div class="lesson">
-    <h3>📱 Модуль 5: Экспорт и оптимизация</h3>
-    <p>Как выгрузить видео в идеальном качестве для Instagram, TikTok и YouTube.</p>
-  </div>
-</section>
- 
-<footer>
-  <p>© 2025 Гайд по CapCut. Все права защищены.</p>
-</footer>
- 
-<script>
-  // Анимация появления блоков при скролле
-  const lessons = document.querySelectorAll('.lesson');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
+    document.querySelectorAll('section.block, .module, .test, .ba .card, .hero').forEach(el => {
+      // Add initial hidden styles if needed
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity .7s ease, transform .7s ease';
+      io.observe(el);
     });
-  }, { threshold: 0.1 });
  
-  lessons.forEach(lesson => observer.observe(lesson));
-</script>
+    // When visible, set final styles
+    io.observe(document.querySelector('.hero'));
+    io.takeRecords();
+ 
+    // Toggle FAQ
+    function toggleFAQ(btn){
+      const ans = btn.nextElementSibling;
+      if(!ans) return;
+      const shown = ans.style.display === 'block';
+      ans.style.display = shown ? 'none' : 'block';
+    }
+ 
+    // Make observed elements visible
+    io.disconnect(); // disconnect previous to re-observe with proper callback
+    const io2 = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.style.opacity = 1;
+          e.target.style.transform = 'translateY(0)';
+          io2.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.08});
+    document.querySelectorAll('section.block, .module, .test, .ba .card, .hero').forEach(el => io2.observe(el));
+  </script>
  
 </body>
 </html>
