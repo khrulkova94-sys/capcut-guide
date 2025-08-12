@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гайд по монтажу в CapCut</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #9B5DE5, #FF6F00);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #9B5DE5;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #FF6F00;
+      color: #fff;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #e65c00;
+    }
+    .lesson {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    .lesson.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      .btn {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+<header>
+  <h1>Гайд по монтажу в CapCut</h1>
+  <p>Прокачай свои видео до уровня топовых блогеров</p>
+  <a href="#" class="btn">Купить гайд</a>
+</header>
+ 
+<section>
+  <h2>Что внутри</h2>
+ 
+  <div class="lesson">
+    <h3>🎯 Модуль 1: Интерфейс CapCut</h3>
+    <p>Научишься мгновенно ориентироваться в программе и экономить время на монтаже.</p>
+  </div>
+ 
+  <div class="lesson">
+    <h3>🎬 Модуль 2: Эффективная нарезка</h3>
+    <p>Секреты резки, склейки и динамичного монтажа, которые держат зрителя до конца.</p>
+  </div>
+ 
+  <div class="lesson">
+    <h3>✨ Модуль 3: Эффекты и переходы</h3>
+    <p>Добавляй вау-эффект без перегруза видео.</p>
+  </div>
+ 
+  <div class="lesson">
+    <h3>🔊 Модуль 4: Работа со звуком</h3>
+    <p>Чистый звук и музыка, которая усиливает впечатление от видео.</p>
+  </div>
+ 
+  <div class="lesson">
+    <h3>📱 Модуль 5: Экспорт и оптимизация</h3>
+    <p>Как выгрузить видео в идеальном качестве для Instagram, TikTok и YouTube.</p>
+  </div>
+</section>
+ 
+<footer>
+  <p>© 2025 Гайд по CapCut. Все права защищены.</p>
+</footer>
+ 
+<script>
+  // Анимация появления блоков при скролле
+  const lessons = document.querySelectorAll('.lesson');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+ 
+  lessons.forEach(lesson => observer.observe(lesson));
+</script>
+ 
+</body>
+</html>
